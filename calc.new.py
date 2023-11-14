@@ -102,6 +102,16 @@ def var_dist():
 
     print('You picked: ' + units[user_input])
 
+    if user_input == '1':
+        conversion_factor = 0.001
+    if user_input == '2':
+        conversion_factor = 0.01
+    if user_input == '3':
+        conversion_factor = 1
+    if user_input == '4':
+        conversion_factor = 1000
+
+    print(conversion_factor * 50)
 
 statement_generator('Welcome to the conversion calculator!', '*')
 
