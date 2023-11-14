@@ -81,19 +81,26 @@ def var_dist():
 
     options = ['mm', 'cm', 'm', 'km']
 
+    units = {'1': 'mm',
+             '2': 'cm',
+             '3': 'm',
+             '4': 'km'
+            }
+
     user_input = ''
 
-    input_message = "Pick an option (units, not number):\n"
+    for unit_key in units:
+        print(unit_key + ". " + units[unit_key])
 
-    for index, item in enumerate(options):
-        input_message += f'{index + 1}) {item}\n'
+    # for index, item in enumerate(options):
+    #     input_message += f'{index + 1}) {item}\n'
 
-    input_message += 'Your choice: '
+    user_input = input('Your choice: ')
 
-    while user_input.lower() not in options:
-        user_input = input(input_message)
+    while user_input.lower() not in units.keys():
+        user_input = input("Try again")
 
-    print('You picked: ' + user_input)
+    print('You picked: ' + units[user_input])
 
 
 statement_generator('Welcome to the conversion calculator!', '*')
