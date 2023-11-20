@@ -111,7 +111,13 @@ def var_dist():
     if user_input == '4':
         conversion_factor = 1000
 
-    print(conversion_factor * 50)
+    key = input('Choose a value to convert to:')
+
+    print( units[key] * 50)
+
+
+
+
 
 statement_generator('Welcome to the conversion calculator!', '*')
 
