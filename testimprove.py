@@ -1,47 +1,47 @@
-def var_dist():
 
-    units = {'1': 'mm',
-             '2': 'cm',
-             '3': 'm',
-             '4': 'km'
-            }
-    conversion = {'1': 0.001,
-                  '2': 0.01,
-                  '3': 1,
-                  '4': 1000}
+def check_units(valid_list, question):
+    while True:
+        response = input(question)
 
-    user_input = ''
+        if response in valid_list:
+            return response
+        else:
+            print("please choose from this list: ", valid_list)
 
-    # print list
+valid_distance = ["mm", "cm", "m", "km"]
 
-    for unit_key in units:
-        print(unit_key + ". " + units[unit_key])
+conversion = {'mm': 0.001,
+              'cm': 0.01,
+              'm': 1,
+              'km': 1000}
 
-    # choose a unit one
+user_input = ''
 
-    user_input = input('Your choice: ')
+# print list
 
-    while user_input.lower() not in units.keys():
-        user_input = input("Please choose the corresponding number. Try again: ")
+print("Please choose mm, cm, m or km")
 
-    print('You picked: ' + units[user_input])
+# choose a unit one
 
-    input_num = int(input('How many? '))
+from_unit = check_units(valid_distance, "Choose a unit to convert from? ")
+print(f"you chose to convert from {from_unit}")
 
-    # convert to m
-
-    from_unit = (conversion[user_input] * input_num)
-
-    to_unit = input('Choose a value to convert to: ')
-
-    while to_unit.lower() not in units.keys():
-        to_unit = input("Please choose the corresponding number. Try again: ")
-
-    print('You picked: ' + units[to_unit])
-
-    print("{} {} to {} = ".format(input_num, units[user_input], units[to_unit]))
-
-    print(conversion[to_unit] * from_unit, units[to_unit])
+input_num = int(input('How many? '))
 
 
-var_dist()
+# convert to m
+#
+# to_standard = (conversion[user_input] * input_num)
+
+to_unit = check_units(valid_distance, "Which unit do you want to convert to? ")
+print(f"you chose {to_unit}")
+
+
+# div_unit = ['1', '2']
+# if to_unit in div_unit:
+#     print(to_standard / conversion[to_unit], units[to_unit])
+# else:
+#     print(conversion[to_unit] * to_standard, units[to_unit])
+#
+
+
